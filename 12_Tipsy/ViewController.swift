@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.8434641361, green: 0.9779344201, blue: 0.9207237363, alpha: 1)
         view.contentMode = .scaleToFill
+//        view.autoresizesSubviews = true
         
         return view
     }()
@@ -56,8 +57,8 @@ class ViewController: UIViewController {
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 26
-        stackView.distribution = .fillEqually
-        stackView.contentMode = .scaleToFill
+        stackView.distribution = .fillProportionally
+//        stackView.contentMode = .center
         stackView.alignment = .center
         return stackView
     }()
@@ -65,7 +66,12 @@ class ViewController: UIViewController {
     private let selectTipLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Helvetica", size: 25)
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        label.contentMode = .scaleAspectFill
         label.text = "Select Tip"
+        
         return label
     }()
     
@@ -73,7 +79,7 @@ class ViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
-        stackView.spacing = 10
+        stackView.spacing = 30
         stackView.alignment = .center
         return stackView
     }()
@@ -83,7 +89,11 @@ class ViewController: UIViewController {
         for i in array {
             let button = UIButton(type: .system)
             button.translatesAutoresizingMaskIntoConstraints = false
+            button.titleLabel?.font = UIFont(name: "Helvetica", size: 35)
             button.setTitle(i, for: .normal)
+            button.tintColor = #colorLiteral(red: 0.001213123207, green: 0.6911759377, blue: 0.4189120829, alpha: 1)
+            button.titleLabel?.textColor = #colorLiteral(red: 0.001213123207, green: 0.6911759377, blue: 0.4189120829, alpha: 1)
+            button.isSelected = true
             percentButtonsStackView.addArrangedSubview(button)
             
         }
@@ -92,6 +102,10 @@ class ViewController: UIViewController {
     private let chooseSplitLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Helvetica", size: 25)
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        label.contentMode = .scaleAspectFill
         label.text = "Choose split"
         return label
     }()
@@ -99,13 +113,20 @@ class ViewController: UIViewController {
     private let stepperStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 10
+//        stackView.contentMode = .center
+//        stackView.alignment = .center
+//        stackView.distribution = .fill
         return stackView
     }()
     
     private lazy var splitNumberLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 35)
+//        label.textAlignment = .center
         label.text = "2"
+        label.textColor = #colorLiteral(red: 0.001213123207, green: 0.6911759377, blue: 0.4189120829, alpha: 1)
         return label
     }()
     
@@ -115,6 +136,8 @@ class ViewController: UIViewController {
         stepper.minimumValue = 2
         stepper.maximumValue = 25
         stepper.tintColor = #colorLiteral(red: 0.001213123207, green: 0.6911759377, blue: 0.4189120829, alpha: 1)
+//        stepper.autorepeat = true
+//        stepper.isContinuous = true
         return stepper
     }()
     
@@ -122,6 +145,10 @@ class ViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Calculate", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 35)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.backgroundColor = #colorLiteral(red: 0.001213123207, green: 0.6911759377, blue: 0.4189120829, alpha: 1)
         return button
     }()
     
@@ -135,11 +162,12 @@ class ViewController: UIViewController {
         stepperStackView.addArrangedSubview(splitNumberLabel)
         stepperStackView.addArrangedSubview(splitNumberStepper)
         
-        selectingView.addSubview(selectingContentStackView)
+        
         selectingContentStackView.addArrangedSubview(selectTipLabel)
         selectingContentStackView.addArrangedSubview(percentButtonsStackView)
         selectingContentStackView.addArrangedSubview(chooseSplitLabel)
         selectingContentStackView.addArrangedSubview(stepperStackView)
+        selectingView.addSubview(selectingContentStackView)
         
         makePercentButtons()
         
@@ -164,14 +192,25 @@ class ViewController: UIViewController {
             billTextField.trailingAnchor.constraint(equalTo: billStackView.trailingAnchor),
 
             selectingView.topAnchor.constraint(equalTo: billStackView.bottomAnchor, constant: 20),
-            selectingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            selectingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            selectingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            selectingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            selectingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            selectingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
+            selectingContentStackView.leadingAnchor.constraint(equalTo: selectingView.leadingAnchor),
+            selectingContentStackView.trailingAnchor.constraint(equalTo: selectingView.trailingAnchor),
+            selectingContentStackView.topAnchor.constraint(equalTo: selectingView.topAnchor, constant: 20),
+           
+            selectTipLabel.leadingAnchor.constraint(equalTo: selectingContentStackView.leadingAnchor, constant: 30),
+            selectTipLabel.trailingAnchor.constraint(equalTo: selectingContentStackView.trailingAnchor, constant: -30),
             
-            calculateButton.topAnchor.constraint(equalTo: selectingView.bottomAnchor, constant: 100),
-            calculateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            chooseSplitLabel.leadingAnchor.constraint(equalTo: selectingContentStackView.leadingAnchor, constant: 30),
+            chooseSplitLabel.trailingAnchor.constraint(equalTo: selectingContentStackView.trailingAnchor, constant: -30),
+            
+
+            calculateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             calculateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            calculateButton.widthAnchor.constraint(equalToConstant: 200),
+            calculateButton.heightAnchor.constraint(equalToConstant: 55)
         ])
         
     }
