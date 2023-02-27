@@ -46,8 +46,8 @@ class ViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.8434641361, green: 0.9779344201, blue: 0.9207237363, alpha: 1)
-        view.contentMode = .scaleToFill
-//        view.autoresizesSubviews = true
+//        view.contentMode = .scaleToFill
+//        view.contentMode = .center
         
         return view
     }()
@@ -185,19 +185,19 @@ class ViewController: UIViewController {
             billStackView.bottomAnchor.constraint(equalTo: selectingView.topAnchor, constant: -20),
             billStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
             
-            enterBillTotalLabel.leadingAnchor.constraint(equalTo: billStackView.leadingAnchor, constant: 50),
-            enterBillTotalLabel.trailingAnchor.constraint(equalTo: billStackView.trailingAnchor, constant: -50),
+            enterBillTotalLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
+            enterBillTotalLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30),
             
             billTextField.leadingAnchor.constraint(equalTo: billStackView.leadingAnchor),
             billTextField.trailingAnchor.constraint(equalTo: billStackView.trailingAnchor),
 
             selectingView.topAnchor.constraint(equalTo: billStackView.bottomAnchor, constant: 20),
-            selectingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            selectingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            selectingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            selectingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             selectingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            selectingContentStackView.leadingAnchor.constraint(equalTo: selectingView.leadingAnchor),
-            selectingContentStackView.trailingAnchor.constraint(equalTo: selectingView.trailingAnchor),
+            selectingContentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            selectingContentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             selectingContentStackView.topAnchor.constraint(equalTo: selectingView.topAnchor, constant: 20),
            
             selectTipLabel.leadingAnchor.constraint(equalTo: selectingContentStackView.leadingAnchor, constant: 30),

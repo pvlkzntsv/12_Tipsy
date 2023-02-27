@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E34351B29A52BA500B3BB40 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E34351A29A52BA500B3BB40 /* ResultViewController.swift */; };
 		4E8C993A299CCF9400FE4FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8C9939299CCF9400FE4FCD /* AppDelegate.swift */; };
 		4E8C993C299CCF9400FE4FCD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8C993B299CCF9400FE4FCD /* SceneDelegate.swift */; };
 		4E8C993E299CCF9400FE4FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8C993D299CCF9400FE4FCD /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E34351A29A52BA500B3BB40 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		4E8C9936299CCF9400FE4FCD /* 12_Tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 12_Tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8C9939299CCF9400FE4FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E8C993B299CCF9400FE4FCD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				4E8C9939299CCF9400FE4FCD /* AppDelegate.swift */,
 				4E8C993B299CCF9400FE4FCD /* SceneDelegate.swift */,
 				4E8C993D299CCF9400FE4FCD /* ViewController.swift */,
+				4E34351A29A52BA500B3BB40 /* ResultViewController.swift */,
 				4E8C9942299CCF9600FE4FCD /* Assets.xcassets */,
 				4E8C9944299CCF9600FE4FCD /* LaunchScreen.storyboard */,
 				4E8C9947299CCF9600FE4FCD /* Info.plist */,
@@ -137,6 +140,7 @@
 				4E8C993E299CCF9400FE4FCD /* ViewController.swift in Sources */,
 				4E8C993A299CCF9400FE4FCD /* AppDelegate.swift in Sources */,
 				4E8C993C299CCF9400FE4FCD /* SceneDelegate.swift in Sources */,
+				4E34351B29A52BA500B3BB40 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
